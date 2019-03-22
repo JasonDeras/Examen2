@@ -6,6 +6,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
+import javax.swing.table.*;
 
 public class DELL extends javax.swing.JFrame {
 
@@ -100,7 +101,7 @@ public class DELL extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ta_Partes = new javax.swing.JTable();
         jLabel30 = new javax.swing.JLabel();
         bt_Iniciar = new javax.swing.JButton();
         bt_Tecnico = new javax.swing.JButton();
@@ -694,7 +695,7 @@ public class DELL extends javax.swing.JFrame {
 
         jLabel29.setText("Computadoras");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ta_Partes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -710,7 +711,7 @@ public class DELL extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable1);
+        jScrollPane3.setViewportView(ta_Partes);
 
         jLabel30.setText("Partes Ensambladas");
 
@@ -1013,7 +1014,6 @@ public class DELL extends javax.swing.JFrame {
             ap.getListap().add(t);
             ap.escribirArchivo();
         } catch (IOException ex) {
-            Logger.getLogger(DELL.class.getName()).log(Level.SEVERE, null, ex);
         }
         jd_Tecnico.dispose();
     }//GEN-LAST:event_bt_CrearTecnicoActionPerformed
@@ -1028,6 +1028,44 @@ public class DELL extends javax.swing.JFrame {
 
     private void bt_IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_IniciarActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel modelo = (DefaultTableModel) ta_Partes.getModel();
+        Object[] newrow = {};
+        int comp;
+        tecnicos.get(JL_Tecnicos.getSelectedIndex()).setCompu(1);
+        if (compus.size() <= 5 || tecnicos.size() >= 1) {
+            double r = compus.size() * 0.30;
+            double t = compus.size() - r;
+            int d = (int) t;
+            for (int i = 0; i < d; i++) {
+                compus.remove(i);
+            }
+        } else if (compus.size() <= 15 || tecnicos.size() >= 6) {
+            double r = compus.size() * 0.22;
+            double t = compus.size() - r;
+            int d = (int) t;
+            for (int i = 0; i < d; i++) {
+                compus.remove(i);
+            }
+        } else if (compus.size() <= 30 || tecnicos.size() >= 16) {
+            double r = compus.size() * 0.13;
+            double t = compus.size() - r;
+            int d = (int) t;
+            for (int i = 0; i < d; i++) {
+                compus.remove(i);
+            }
+        } else if (rootPaneCheckingEnabled) {//Ram
+            comp = r.getTiempo();
+        } else if (rootPaneCheckingEnabled) {//Disco Duro
+            comp = dd.getTiempo();
+        } else if (rootPaneCheckingEnabled) {//Bateria
+            comp = b.getTiempo();
+        } else if (rootPaneCheckingEnabled) {//Teclado
+            comp = tc.getTiempo();
+        } else if (rootPaneCheckingEnabled) {//Pantalla
+            comp = p.getTiempo();
+        } else if (rootPaneCheckingEnabled) {//Procesador
+            comp = pc.getTiempo();
+        }
         ab.start();
     }//GEN-LAST:event_bt_IniciarActionPerformed
 
@@ -1124,7 +1162,6 @@ public class DELL extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JProgressBar jbr_Esamblaje_por_partes;
     private javax.swing.JDialog jd_Bateria;
     private javax.swing.JDialog jd_Crear_Computadora;
@@ -1136,6 +1173,7 @@ public class DELL extends javax.swing.JFrame {
     private javax.swing.JDialog jd_Teclado;
     private javax.swing.JDialog jd_Tecnico;
     private com.toedter.calendar.JDateChooser jdc_Año_C;
+    private javax.swing.JTable ta_Partes;
     private javax.swing.JTextField tf_Edad;
     private javax.swing.JTextField tf_Ensamblaje;
     private javax.swing.JTextField tf_Ensamblaje1;
