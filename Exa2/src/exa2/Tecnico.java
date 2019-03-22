@@ -5,15 +5,16 @@ public class Tecnico {
     private String nombre;
     private int edad;
     private String genero;
-    private int compu = 0;
+    private int compu;
 
     public Tecnico() {
     }
 
-    public Tecnico(String nombre, int edad, String genero) {
+    public Tecnico(String nombre, int edad, String genero, int compu) {
         this.nombre = nombre;
         this.edad = edad;
         this.genero = genero;
+        this.compu = compu;
     }
 
     public String getNombre() {
@@ -52,5 +53,5 @@ public class Tecnico {
     public String toString() {
         return "Tecnico{" + "Nombre=" + nombre + ", Edad=" + edad + ", Genero=" + genero + ", Computadoras ensambladas con exito=" + compu + '}';
     }
-    
+
 }

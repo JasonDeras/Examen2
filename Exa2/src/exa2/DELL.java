@@ -1,7 +1,10 @@
 package exa2;
 
 import java.awt.*;
+import java.io.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 public class DELL extends javax.swing.JFrame {
@@ -882,14 +885,21 @@ public class DELL extends javax.swing.JFrame {
 
     private void bt_CrearCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CrearCActionPerformed
         // TODO add your handling code here:
-        c = new Computadora(tf_N_Serie.getText(), jdc_Año_C.getDate(), co, tf_Material.getText());
-        tf_N_Serie.setText("");
-        jdc_Año_C.setDate(new Date());
-        tf_Material.setText("");
-        compus.add(c);
-        DefaultListModel modelo = (DefaultListModel) JL_Computadoras.getModel();
-        modelo.addElement(c);
-        JL_Computadoras.setModel(modelo);
+        try {
+            c = new Computadora(tf_N_Serie.getText(), jdc_Año_C.getDate(), co, tf_Material.getText());
+            tf_N_Serie.setText("");
+            jdc_Año_C.setDate(new Date());
+            tf_Material.setText("");
+            compus.add(c);
+            DefaultListModel modelo = (DefaultListModel) JL_Computadoras.getModel();
+            modelo.addElement(c);
+            JL_Computadoras.setModel(modelo);
+            adminComputadoras ap = new adminComputadoras("./Computadoras.txt");
+            ap.cargarArchivo();
+            ap.getListap().add(c);
+            ap.escribirArchivo();
+        } catch (IOException ex) {
+        }
         jd_Crear_Computadora.dispose();
     }//GEN-LAST:event_bt_CrearCActionPerformed
 
@@ -923,7 +933,7 @@ public class DELL extends javax.swing.JFrame {
 
     private void bt_AgregarTecladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AgregarTecladoActionPerformed
         // TODO add your handling code here:
-        tc = new Teclado(tf_Material2.getText(), co,  Integer.parseInt(tf_Ensamblaje3.getText()));
+        tc = new Teclado(tf_Material2.getText(), co, Integer.parseInt(tf_Ensamblaje3.getText()));
         c.setparte(tc);
         tf_Material2.setText("");
         tf_Ensamblaje3.setText("");
@@ -934,7 +944,6 @@ public class DELL extends javax.swing.JFrame {
         // TODO add your handling code here
         bt_Color1.setBackground(JColorChooser.showDialog(this, "Seleccione una color para la figura", Color.BLUE));
         co1 = bt_Color1.getBackground();
-
     }//GEN-LAST:event_bt_Color1ActionPerformed
 
     private void bt_BateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_BateriaActionPerformed
@@ -973,7 +982,7 @@ public class DELL extends javax.swing.JFrame {
 
     private void bt_AgregarProcesadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AgregarProcesadorActionPerformed
         // TODO add your handling code here:
-        pc = new Procesador(Integer.parseInt(tf_Nucleos.getText()),  Integer.parseInt(tf_Velocidad.getText()),  Integer.parseInt(tf_Ensamblaje5.getText()));
+        pc = new Procesador(Integer.parseInt(tf_Nucleos.getText()), Integer.parseInt(tf_Velocidad.getText()), Integer.parseInt(tf_Ensamblaje5.getText()));
         c.setparte(pc);
         tf_Nucleos.setText("");
         tf_Velocidad.setText("");
@@ -991,14 +1000,21 @@ public class DELL extends javax.swing.JFrame {
 
     private void bt_CrearTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CrearTecnicoActionPerformed
         // TODO add your handling code here:
-        t = new Tecnico(tf_Nombre.getText(), Integer.parseInt(tf_Edad.getText()), tf_Genero.getText());
-        tecnicos.add(t);
-        tf_Nombre.setText("");
-        tf_Edad.setText("");
-        tf_Genero.setText("");
-        DefaultListModel modelo = (DefaultListModel) JL_Tecnicos.getModel();
-        modelo.addElement(c);
-        JL_Tecnicos.setModel(modelo);
+        try {
+            t = new Tecnico(tf_Nombre.getText(), Integer.parseInt(tf_Edad.getText()), tf_Genero.getText(), 0);
+            tecnicos.add(t);
+            tf_Nombre.setText("");
+            tf_Edad.setText("");
+            tf_Genero.setText("");
+            DefaultListModel modelo = (DefaultListModel) JL_Tecnicos.getModel();
+            modelo.addElement(c);
+            JL_Tecnicos.setModel(modelo);
+            adminTecnico ap = new adminTecnico("./Tecnicos.txt");
+            ap.getListap().add(t);
+            ap.escribirArchivo();
+        } catch (IOException ex) {
+            Logger.getLogger(DELL.class.getName()).log(Level.SEVERE, null, ex);
+        }
         jd_Tecnico.dispose();
     }//GEN-LAST:event_bt_CrearTecnicoActionPerformed
 
