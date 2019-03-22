@@ -9,7 +9,7 @@ public class Pantalla extends Parte{
         super();
     }
 
-    public Pantalla(String tipo, String tactil, double tiempo) {
+    public Pantalla(String tipo, String tactil, int tiempo) {
         super(tiempo);
         this.tipo = tipo;
         this.tactil = tactil;

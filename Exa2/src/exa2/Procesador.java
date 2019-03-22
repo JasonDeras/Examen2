@@ -3,13 +3,13 @@ package exa2;
 public class Procesador extends Parte {
 
     private int n_nucleos;
-    private double velocidad;
+    private int velocidad;
 
     public Procesador() {
         super();
     }
 
-    public Procesador(int n_nucleos, double velocidad, double tiempo) {
+    public Procesador(int n_nucleos, int velocidad, int tiempo) {
         super(tiempo);
         this.n_nucleos = n_nucleos;
         this.velocidad = velocidad;
@@ -23,11 +23,11 @@ public class Procesador extends Parte {
         this.n_nucleos = n_nucleos;
     }
 
-    public double getVelocidad() {
+    public int getVelocidad() {
         return velocidad;
     }
 
-    public void setVelocidad(double velocidad) {
+    public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
 

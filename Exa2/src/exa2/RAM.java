@@ -9,7 +9,7 @@ public class RAM extends Parte {
         super();
     }
 
-    public RAM(int tam, String marca, double tiempo) {
+    public RAM(int tam, String marca, int tiempo) {
         super(tiempo);
         this.tam = tam;
         this.marca = marca;

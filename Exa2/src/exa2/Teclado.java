@@ -11,7 +11,7 @@ public class Teclado extends Parte {
         super();
     }
 
-    public Teclado(String material, Color c, double tiempo) {
+    public Teclado(String material, Color c, int tiempo) {
         super(tiempo);
         this.material = material;
         this.c = c;

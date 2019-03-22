@@ -8,6 +8,7 @@ public class DELL extends javax.swing.JFrame {
 
     public DELL() {
         initComponents();
+        ab = new adminbarra(jbr_Esamblaje_por_partes);
     }
 
     @SuppressWarnings("unchecked")
@@ -86,6 +87,19 @@ public class DELL extends javax.swing.JFrame {
         tf_Edad = new javax.swing.JTextField();
         tf_Genero = new javax.swing.JTextField();
         bt_CrearTecnico = new javax.swing.JButton();
+        jd_Esamblaje = new javax.swing.JDialog();
+        jLabel12 = new javax.swing.JLabel();
+        jbr_Esamblaje_por_partes = new javax.swing.JProgressBar();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JL_Tecnicos = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        JL_Computadoras = new javax.swing.JList<>();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel30 = new javax.swing.JLabel();
+        bt_Iniciar = new javax.swing.JButton();
         bt_Tecnico = new javax.swing.JButton();
         bt_Computadora = new javax.swing.JButton();
         bt_Ensamble = new javax.swing.JButton();
@@ -665,6 +679,96 @@ public class DELL extends javax.swing.JFrame {
                 .addContainerGap(122, Short.MAX_VALUE))
         );
 
+        jd_Esamblaje.setTitle("Ensamblaje");
+
+        jLabel12.setText("Tecnicos");
+
+        jScrollPane1.setViewportView(JL_Tecnicos);
+
+        jScrollPane2.setViewportView(JL_Computadoras);
+
+        jLabel22.setText("Satus de las Partes");
+
+        jLabel29.setText("Computadoras");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Parte"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(jTable1);
+
+        jLabel30.setText("Partes Ensambladas");
+
+        bt_Iniciar.setText("Iniciar Ensamblado");
+        bt_Iniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_IniciarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_EsamblajeLayout = new javax.swing.GroupLayout(jd_Esamblaje.getContentPane());
+        jd_Esamblaje.getContentPane().setLayout(jd_EsamblajeLayout);
+        jd_EsamblajeLayout.setHorizontalGroup(
+            jd_EsamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_EsamblajeLayout.createSequentialGroup()
+                .addGroup(jd_EsamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_EsamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel29)
+                        .addComponent(jLabel12)
+                        .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel30))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_EsamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jd_EsamblajeLayout.createSequentialGroup()
+                        .addComponent(jbr_Esamblaje_por_partes, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(bt_Iniciar)
+                .addGap(155, 155, 155))
+        );
+        jd_EsamblajeLayout.setVerticalGroup(
+            jd_EsamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_EsamblajeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_EsamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_EsamblajeLayout.createSequentialGroup()
+                        .addComponent(jLabel22)
+                        .addGroup(jd_EsamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_EsamblajeLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_EsamblajeLayout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(jLabel29)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jd_EsamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12)))
+                    .addGroup(jd_EsamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(bt_Iniciar)
+                        .addComponent(jbr_Esamblaje_por_partes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jd_EsamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel30))
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Crear de Computadoras DELL");
 
@@ -683,6 +787,11 @@ public class DELL extends javax.swing.JFrame {
         });
 
         bt_Ensamble.setText("Ensamble");
+        bt_Ensamble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_EnsambleActionPerformed(evt);
+            }
+        });
 
         bt_Administrar_C.setText("Administrar Computadora");
 
@@ -714,7 +823,7 @@ public class DELL extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -739,7 +848,7 @@ public class DELL extends javax.swing.JFrame {
 
     private void bt_AgregarRamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AgregarRamActionPerformed
         // TODO add your handling code here:
-        r = new RAM(Integer.parseInt(tf_Tamaño.getText()), tf_Marca.getText(), Double.parseDouble(tf_Ensamblaje.getText()));
+        r = new RAM(Integer.parseInt(tf_Tamaño.getText()), tf_Marca.getText(), Integer.parseInt(tf_Ensamblaje.getText()));
         c.setparte(r);
         tf_Ensamblaje.setText("");
         tf_Marca.setText("");
@@ -749,7 +858,7 @@ public class DELL extends javax.swing.JFrame {
 
     private void bt_TecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_TecnicoActionPerformed
         // TODO add your handling code here:
-         jd_Teclado.setModal(true);
+        jd_Teclado.setModal(true);
         jd_Teclado.pack();
         jd_Teclado.setLocationRelativeTo(this);
         jd_Teclado.setVisible(true);
@@ -778,12 +887,15 @@ public class DELL extends javax.swing.JFrame {
         jdc_Año_C.setDate(new Date());
         tf_Material.setText("");
         compus.add(c);
+        DefaultListModel modelo = (DefaultListModel) JL_Computadoras.getModel();
+        modelo.addElement(c);
+        JL_Computadoras.setModel(modelo);
         jd_Crear_Computadora.dispose();
     }//GEN-LAST:event_bt_CrearCActionPerformed
 
     private void bt_AgregarDiscoDuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AgregarDiscoDuroActionPerformed
         // TODO add your handling code here:
-        dd = new Disco_Duro(Integer.parseInt(tf_Tamaño1.getText()), tf_Marca1.getText(), Double.parseDouble(tf_Ensamblaje1.getText()));
+        dd = new Disco_Duro(Integer.parseInt(tf_Tamaño1.getText()), tf_Marca1.getText(), Integer.parseInt(tf_Ensamblaje1.getText()));
         c.setparte(dd);
         tf_Tamaño1.setText("");
         tf_Ensamblaje1.setText("");
@@ -801,7 +913,7 @@ public class DELL extends javax.swing.JFrame {
 
     private void bt_AgregarBateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AgregarBateriaActionPerformed
         // TODO add your handling code here:
-        b = new Bateria(Integer.parseInt(tf_Horas.getText()), tf_Material1.getText(), Double.parseDouble(tf_Ensamblaje2.getText()));
+        b = new Bateria(Integer.parseInt(tf_Horas.getText()), tf_Material1.getText(), Integer.parseInt(tf_Ensamblaje2.getText()));
         c.setparte(b);
         tf_Horas.setText("");
         tf_Material1.setText("");
@@ -811,7 +923,7 @@ public class DELL extends javax.swing.JFrame {
 
     private void bt_AgregarTecladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AgregarTecladoActionPerformed
         // TODO add your handling code here:
-        tc = new Teclado(tf_Material2.getText(), co, Double.parseDouble(tf_Ensamblaje3.getText()));
+        tc = new Teclado(tf_Material2.getText(), co,  Integer.parseInt(tf_Ensamblaje3.getText()));
         c.setparte(tc);
         tf_Material2.setText("");
         tf_Ensamblaje3.setText("");
@@ -843,7 +955,7 @@ public class DELL extends javax.swing.JFrame {
 
     private void bt_AgregarPantallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AgregarPantallaActionPerformed
         // TODO add your handling code here:
-        p = new Pantalla(tf_Tipo.getText(), tf_Tactil.getText(), Double.parseDouble(tf_Ensamblaje4.getText()));
+        p = new Pantalla(tf_Tipo.getText(), tf_Tactil.getText(), Integer.parseInt(tf_Ensamblaje4.getText()));
         c.setparte(p);
         tf_Tipo.setText("");
         tf_Ensamblaje4.setText("");
@@ -861,7 +973,7 @@ public class DELL extends javax.swing.JFrame {
 
     private void bt_AgregarProcesadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AgregarProcesadorActionPerformed
         // TODO add your handling code here:
-        pc = new Procesador(Integer.parseInt(tf_Nucleos.getText()), Double.parseDouble(tf_Velocidad.getText()), Double.parseDouble(tf_Ensamblaje5.getText()));
+        pc = new Procesador(Integer.parseInt(tf_Nucleos.getText()),  Integer.parseInt(tf_Velocidad.getText()),  Integer.parseInt(tf_Ensamblaje5.getText()));
         c.setparte(pc);
         tf_Nucleos.setText("");
         tf_Velocidad.setText("");
@@ -884,8 +996,24 @@ public class DELL extends javax.swing.JFrame {
         tf_Nombre.setText("");
         tf_Edad.setText("");
         tf_Genero.setText("");
+        DefaultListModel modelo = (DefaultListModel) JL_Tecnicos.getModel();
+        modelo.addElement(c);
+        JL_Tecnicos.setModel(modelo);
         jd_Tecnico.dispose();
     }//GEN-LAST:event_bt_CrearTecnicoActionPerformed
+
+    private void bt_EnsambleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_EnsambleActionPerformed
+        // TODO add your handling code here:
+        jd_Esamblaje.setModal(true);
+        jd_Esamblaje.pack();
+        jd_Esamblaje.setLocationRelativeTo(this);
+        jd_Esamblaje.setVisible(true);
+    }//GEN-LAST:event_bt_EnsambleActionPerformed
+
+    private void bt_IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_IniciarActionPerformed
+        // TODO add your handling code here:
+        ab.start();
+    }//GEN-LAST:event_bt_IniciarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -923,6 +1051,8 @@ public class DELL extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> JL_Computadoras;
+    private javax.swing.JList<String> JL_Tecnicos;
     private javax.swing.JButton bt_Administrar_C;
     private javax.swing.JButton bt_Administrar_T;
     private javax.swing.JButton bt_AgregarBateria;
@@ -939,6 +1069,7 @@ public class DELL extends javax.swing.JFrame {
     private javax.swing.JButton bt_CrearTecnico;
     private javax.swing.JButton bt_Disco_Duro;
     private javax.swing.JButton bt_Ensamble;
+    private javax.swing.JButton bt_Iniciar;
     private javax.swing.JButton bt_Pantalla;
     private javax.swing.JButton bt_Procesador;
     private javax.swing.JButton bt_RAM;
@@ -947,6 +1078,7 @@ public class DELL extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -957,22 +1089,31 @@ public class DELL extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JProgressBar jbr_Esamblaje_por_partes;
     private javax.swing.JDialog jd_Bateria;
     private javax.swing.JDialog jd_Crear_Computadora;
     private javax.swing.JDialog jd_Disco_Duro;
+    private javax.swing.JDialog jd_Esamblaje;
     private javax.swing.JDialog jd_Pantalla;
     private javax.swing.JDialog jd_Procesador;
     private javax.swing.JDialog jd_RAM;
@@ -1015,4 +1156,6 @@ Computadora c = new Computadora();
     Procesador pc = new Procesador();
     private Color co;
     private Color co1;
+    private int time;
+    adminbarra ab;
 }

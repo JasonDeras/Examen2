@@ -9,7 +9,7 @@ public class Disco_Duro extends Parte {
         super();
     }
 
-    public Disco_Duro(int tam, String marca, double tiempo) {
+    public Disco_Duro(int tam, String marca, int tiempo) {
         super(tiempo);
         this.tam = tam;
         this.marca = marca;

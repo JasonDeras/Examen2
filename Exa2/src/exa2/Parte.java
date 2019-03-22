@@ -2,20 +2,20 @@ package exa2;
 
 public class Parte {
 
-    private double tiempo;
+    private int tiempo;
 
     public Parte() {
     }
 
-    public Parte(double tiempo) {
+    public Parte(int tiempo) {
         this.tiempo = tiempo;
     }
 
-    public double getTiempo() {
+    public int getTiempo() {
         return tiempo;
     }
 
-    public void setTiempo(double tiempo) {
+    public void setTiempo(int tiempo) {
         this.tiempo = tiempo;
     }
 

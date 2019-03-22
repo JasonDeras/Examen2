@@ -8,7 +8,7 @@ private String material;
         super();
     }
 
-    public Bateria(int horas, String material, double tiempo) {
+    public Bateria(int horas, String material, int tiempo) {
         super(tiempo);
         this.horas = horas;
         this.material = material;
