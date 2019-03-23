@@ -105,7 +105,10 @@ public class DELL extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         JL_Tecnicos1 = new javax.swing.JList<>();
         bt_Eliminar_Tecnico = new javax.swing.JButton();
-        bt_Modificar_Tecnico = new javax.swing.JButton();
+        jd_AdministrarCom = new javax.swing.JDialog();
+        bt_Eliminar_Computadora = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        JL_Computadoras1 = new javax.swing.JList<>();
         bt_Tecnico = new javax.swing.JButton();
         bt_Computadora = new javax.swing.JButton();
         bt_Ensamble = new javax.swing.JButton();
@@ -680,9 +683,9 @@ public class DELL extends javax.swing.JFrame {
                 .addGroup(jd_TecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(tf_Genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(37, 37, 37)
                 .addComponent(bt_CrearTecnico)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         jd_Esamblaje.setTitle("Ensamblaje");
@@ -775,11 +778,16 @@ public class DELL extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jd_AdministarTec.setTitle("Administrador de Tecnicos");
+
         jScrollPane4.setViewportView(JL_Tecnicos1);
 
         bt_Eliminar_Tecnico.setText("Eliminar");
-
-        bt_Modificar_Tecnico.setText("jButton1");
+        bt_Eliminar_Tecnico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_Eliminar_TecnicoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_AdministarTecLayout = new javax.swing.GroupLayout(jd_AdministarTec.getContentPane());
         jd_AdministarTec.getContentPane().setLayout(jd_AdministarTecLayout);
@@ -789,10 +797,7 @@ public class DELL extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jd_AdministarTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jd_AdministarTecLayout.createSequentialGroup()
-                        .addComponent(bt_Eliminar_Tecnico)
-                        .addGap(28, 28, 28)
-                        .addComponent(bt_Modificar_Tecnico)))
+                    .addComponent(bt_Eliminar_Tecnico))
                 .addContainerGap(130, Short.MAX_VALUE))
         );
         jd_AdministarTecLayout.setVerticalGroup(
@@ -801,10 +806,38 @@ public class DELL extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jd_AdministarTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bt_Eliminar_Tecnico)
-                    .addComponent(bt_Modificar_Tecnico))
+                .addComponent(bt_Eliminar_Tecnico)
                 .addContainerGap(114, Short.MAX_VALUE))
+        );
+
+        bt_Eliminar_Computadora.setText("Eliminar");
+        bt_Eliminar_Computadora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_Eliminar_ComputadoraActionPerformed(evt);
+            }
+        });
+
+        jScrollPane5.setViewportView(JL_Computadoras1);
+
+        javax.swing.GroupLayout jd_AdministrarComLayout = new javax.swing.GroupLayout(jd_AdministrarCom.getContentPane());
+        jd_AdministrarCom.getContentPane().setLayout(jd_AdministrarComLayout);
+        jd_AdministrarComLayout.setHorizontalGroup(
+            jd_AdministrarComLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_AdministrarComLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_AdministrarComLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt_Eliminar_Computadora))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jd_AdministrarComLayout.setVerticalGroup(
+            jd_AdministrarComLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_AdministrarComLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bt_Eliminar_Computadora)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -832,8 +865,18 @@ public class DELL extends javax.swing.JFrame {
         });
 
         bt_Administrar_C.setText("Administrar Computadora");
+        bt_Administrar_C.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_Administrar_CActionPerformed(evt);
+            }
+        });
 
         bt_Administrar_T.setText("Administrar Tecnico");
+        bt_Administrar_T.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_Administrar_TActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("DELL");
@@ -1124,6 +1167,32 @@ public class DELL extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bt_IniciarActionPerformed
 
+    private void bt_Eliminar_TecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_Eliminar_TecnicoActionPerformed
+        // TODO add your handling code here:
+        JL_Tecnicos1.remove(JL_Tecnicos1.getSelectedIndex());
+    }//GEN-LAST:event_bt_Eliminar_TecnicoActionPerformed
+
+    private void bt_Eliminar_ComputadoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_Eliminar_ComputadoraActionPerformed
+        // TODO add your handling code here:
+        JL_Computadoras1.remove(JL_Computadoras1.getSelectedIndex());
+    }//GEN-LAST:event_bt_Eliminar_ComputadoraActionPerformed
+
+    private void bt_Administrar_TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_Administrar_TActionPerformed
+        // TODO add your handling code here:
+        jd_AdministarTec.setModal(true);
+        jd_AdministarTec.pack();
+        jd_AdministarTec.setLocationRelativeTo(this);
+        jd_AdministarTec.setVisible(true);
+    }//GEN-LAST:event_bt_Administrar_TActionPerformed
+
+    private void bt_Administrar_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_Administrar_CActionPerformed
+        // TODO add your handling code here:
+        jd_AdministrarCom.setModal(true);
+        jd_AdministrarCom.pack();
+        jd_AdministrarCom.setLocationRelativeTo(this);
+        jd_AdministrarCom.setVisible(true);
+    }//GEN-LAST:event_bt_Administrar_CActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1161,6 +1230,7 @@ public class DELL extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> JL_Computadoras;
+    private javax.swing.JList<String> JL_Computadoras1;
     private javax.swing.JList<String> JL_Tecnicos;
     private javax.swing.JList<String> JL_Tecnicos1;
     private javax.swing.JButton bt_Administrar_C;
@@ -1178,10 +1248,10 @@ public class DELL extends javax.swing.JFrame {
     private javax.swing.JButton bt_CrearC;
     private javax.swing.JButton bt_CrearTecnico;
     private javax.swing.JButton bt_Disco_Duro;
+    private javax.swing.JButton bt_Eliminar_Computadora;
     private javax.swing.JButton bt_Eliminar_Tecnico;
     private javax.swing.JButton bt_Ensamble;
     private javax.swing.JButton bt_Iniciar;
-    private javax.swing.JButton bt_Modificar_Tecnico;
     private javax.swing.JButton bt_Pantalla;
     private javax.swing.JButton bt_Procesador;
     private javax.swing.JButton bt_RAM;
@@ -1221,8 +1291,10 @@ public class DELL extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JProgressBar jbr_Esamblaje_por_partes;
     private javax.swing.JDialog jd_AdministarTec;
+    private javax.swing.JDialog jd_AdministrarCom;
     private javax.swing.JDialog jd_Bateria;
     private javax.swing.JDialog jd_Crear_Computadora;
     private javax.swing.JDialog jd_Disco_Duro;
