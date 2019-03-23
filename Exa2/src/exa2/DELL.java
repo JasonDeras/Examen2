@@ -3,6 +3,8 @@ package exa2;
 import java.awt.*;
 import java.io.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.*;
 
@@ -105,6 +107,7 @@ public class DELL extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         JL_Tecnicos1 = new javax.swing.JList<>();
         bt_Eliminar_Tecnico = new javax.swing.JButton();
+        bt_Modificar_Tecnico = new javax.swing.JButton();
         jd_AdministrarCom = new javax.swing.JDialog();
         bt_Eliminar_Computadora = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -789,6 +792,13 @@ public class DELL extends javax.swing.JFrame {
             }
         });
 
+        bt_Modificar_Tecnico.setText("Modificar");
+        bt_Modificar_Tecnico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_Modificar_TecnicoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_AdministarTecLayout = new javax.swing.GroupLayout(jd_AdministarTec.getContentPane());
         jd_AdministarTec.getContentPane().setLayout(jd_AdministarTecLayout);
         jd_AdministarTecLayout.setHorizontalGroup(
@@ -797,7 +807,10 @@ public class DELL extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jd_AdministarTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt_Eliminar_Tecnico))
+                    .addGroup(jd_AdministarTecLayout.createSequentialGroup()
+                        .addComponent(bt_Eliminar_Tecnico)
+                        .addGap(39, 39, 39)
+                        .addComponent(bt_Modificar_Tecnico)))
                 .addContainerGap(130, Short.MAX_VALUE))
         );
         jd_AdministarTecLayout.setVerticalGroup(
@@ -806,7 +819,9 @@ public class DELL extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(bt_Eliminar_Tecnico)
+                .addGroup(jd_AdministarTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_Eliminar_Tecnico)
+                    .addComponent(bt_Modificar_Tecnico))
                 .addContainerGap(114, Short.MAX_VALUE))
         );
 
@@ -1169,12 +1184,24 @@ public class DELL extends javax.swing.JFrame {
 
     private void bt_Eliminar_TecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_Eliminar_TecnicoActionPerformed
         // TODO add your handling code here:
-        JL_Tecnicos1.remove(JL_Tecnicos1.getSelectedIndex());
+        try {
+            adminTecnico ap = new adminTecnico("./Tecnicos.txt");
+            ap.cargarArchivo();
+            ap.getListap().remove(JL_Tecnicos1.getSelectedIndex());
+            ap.escribirArchivo();
+        } catch (IOException ex) {
+        }
     }//GEN-LAST:event_bt_Eliminar_TecnicoActionPerformed
 
     private void bt_Eliminar_ComputadoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_Eliminar_ComputadoraActionPerformed
         // TODO add your handling code here:
-        JL_Computadoras1.remove(JL_Computadoras1.getSelectedIndex());
+        try {
+            adminTecnico ap = new adminTecnico("./Computadoras.txt");
+            ap.cargarArchivo();
+            ap.getListap().remove(JL_Computadoras1.getSelectedIndex());
+            ap.escribirArchivo();
+        } catch (IOException ex) {
+        }
     }//GEN-LAST:event_bt_Eliminar_ComputadoraActionPerformed
 
     private void bt_Administrar_TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_Administrar_TActionPerformed
@@ -1192,6 +1219,24 @@ public class DELL extends javax.swing.JFrame {
         jd_AdministrarCom.setLocationRelativeTo(this);
         jd_AdministrarCom.setVisible(true);
     }//GEN-LAST:event_bt_Administrar_CActionPerformed
+
+    private void bt_Modificar_TecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_Modificar_TecnicoActionPerformed
+        // TODO add your handling code here:
+        try {
+            adminTecnico ap = new adminTecnico("./Tecnicos.txt");
+            String nombre = JOptionPane.showInputDialog(jd_AdministarTec, "Nombre");
+            int edad = Integer.parseInt(JOptionPane.showInputDialog(jd_AdministarTec, "Edad"));
+            String genero = JOptionPane.showInputDialog(jd_AdministarTec, "Genero");
+            int com = Integer.parseInt(JOptionPane.showInputDialog(jd_AdministarTec, "Numero de compus esambladas"));
+            ap.cargarArchivo();
+            ap.getListap().get(JL_Tecnicos1.getSelectedIndex()).setNombre(nombre);
+            ap.getListap().get(JL_Tecnicos1.getSelectedIndex()).setEdad(edad);
+            ap.getListap().get(JL_Tecnicos1.getSelectedIndex()).setGenero(genero);
+            ap.getListap().get(JL_Tecnicos1.getSelectedIndex()).setCompu(com);
+            ap.escribirArchivo();
+        } catch (IOException ex) {
+        }
+    }//GEN-LAST:event_bt_Modificar_TecnicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1252,6 +1297,7 @@ public class DELL extends javax.swing.JFrame {
     private javax.swing.JButton bt_Eliminar_Tecnico;
     private javax.swing.JButton bt_Ensamble;
     private javax.swing.JButton bt_Iniciar;
+    private javax.swing.JButton bt_Modificar_Tecnico;
     private javax.swing.JButton bt_Pantalla;
     private javax.swing.JButton bt_Procesador;
     private javax.swing.JButton bt_RAM;
