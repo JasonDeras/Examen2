@@ -7,11 +7,13 @@ public class adminbarra extends Thread {
     private JProgressBar barra;
     private boolean avanzar;
     private boolean vive;
+    private int n;
 
-    public adminbarra(JProgressBar barra) {
+    public adminbarra(JProgressBar barra, int n) {
         this.barra = barra;
-        avanzar = true;
-        vive = true;
+        this.avanzar = true;
+        this.vive = true;
+        this.n = n;
     }
 
     public JProgressBar getBarra() {
@@ -38,16 +40,24 @@ public class adminbarra extends Thread {
         this.vive = vive;
     }
 
+    public int getN() {
+        return n;
+    }
+
+    public void setN(int n) {
+        this.n = n;
+    }
+
     public void run() {
+        int tiempo = 0;
         while (vive) {
             if (avanzar) {
+                tiempo = 1000 * n;
+                barra.setMaximum(n);
                 barra.setValue(barra.getValue() + 1);
-                if (barra.getValue() == 100000000) {
-                    vive = false;
-                }
             }
             try {
-                Thread.sleep(50);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
             }
         }

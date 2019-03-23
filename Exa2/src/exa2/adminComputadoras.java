@@ -46,7 +46,7 @@ public class adminComputadoras {
         FileWriter fw = null;
         BufferedWriter bw = null;
         try {
-            fw = new FileWriter(archivo, false);
+            fw = new FileWriter(archivo, true);
             bw = new BufferedWriter(fw);
             for (Computadora t : listap) {
                 bw.write(t.getN_serie() + ";");
